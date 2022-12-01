@@ -20,7 +20,7 @@ FROM new_schema.festival
 group by Rgion_principale_de_droulement,Discipline_dominante
 order by Rgion_principale_de_droulement, nb desc) ranks
 where rang1 =1;
--- classement des périodes où se déroulent les festivales--
+-- classement des périodes où se déroulent les festivals--
 select * from (select Priode_principale_de_droulement_du_festival, count(Priode_principale_de_droulement_du_festival) as nb_de_festival_se_déroulant_pendant_cette_période
 , dense_rank() over (order by count(Priode_principale_de_droulement_du_festival ) desc)  as rang
 from festival
